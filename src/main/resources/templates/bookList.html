@@ -5,24 +5,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<table>
-
-    <div>
-        <h1>My friends</h1>
-        <ul>
-            <li th:each="friend : ${friends}" th:text="${friend}"></li>
-        </ul>
-    </div>
-
-    <div>
-        <h1>Add new friend to list</h1>
-        <form action="#" th:action="@{/index}" method="GET">
-            <label>Name:</label>
-            <input type="text" th:name="friend"/>
-            <p><input type="submit" value="Submit" /></p>
-        </form>
-    </div>
-
-</table>
+    <h1>Books</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Year</th>
+        </tr>
+        <tr th:each = "book : ${books}">
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.isbn}"></td>
+            <td th:text="${book.releaseYear}"></td>
+        </tr>
+    </table>
 </body>
 </html>
