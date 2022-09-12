@@ -1,7 +1,7 @@
-package com.example.bookstore;
+package fi.haagahelia.bookstore;
 
-import com.example.bookstore.domain.Book;
-import com.example.bookstore.domain.BookRepository;
+import fi.haagahelia.bookstore.domain.Book;
+import fi.haagahelia.bookstore.domain.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
