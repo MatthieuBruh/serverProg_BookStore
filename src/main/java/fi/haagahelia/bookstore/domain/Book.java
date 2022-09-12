@@ -7,12 +7,9 @@ import java.util.Objects;
 
 @Entity
 public class Book {
-
     @Column(nullable = false)
     private String title;
-    @Column(nullable = true)
     private String author;
-    @Column(nullable = true)
     private int releaseYear;
     @Id
     private String isbn;

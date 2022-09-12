@@ -1,30 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Book manager - book list</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <h1>Add student</h1>
-    <div>
-        <form th:object="${book}" th:action="@{save}" action="#" method="post">
-            <label for="auth">Author</label>
-            <input type="text" id="auth" th:field="*{author}" />
+<h1>Books</h1>
+<table class="table table-striped">
+    <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Year</th>
+    </tr>
+    <tr th:each = "book : ${books}">
+        <td th:text="${book.author}" />
+        <td th:text="${book.title}" />
+        <td th:text="${book.isbn}" />
+        <td th:text="${book.releaseYear}" />
+        <td><a th:href="@{/delete/{isbn}(isbn=${book.isbn})}">Delete</a></td>
+        <td><a th:href="@{/edit(isbn=${book.isbn})}">Edit</a></td>
+    </tr>
+</table>
 
-            <label for="tlt">Title</label>
-            <input type="text" id="tlt" th:field="*{title}" />
-
-            <label for="isbn">ISBN</label>
-            <input type="text" id="isbn" th:field="*{isbn}" />
-
-            <label for="year">Year</label>
-            <input type="number" id="year" th:field="*{releaseYear}" />
-
-            <label for="prc">Price</label>
-            <input type="number" id="prc" th:field="*{price}" />
-
-            <input type="submit" value="Save" />
-        </form>
-    </div>
+<a href="/add" class="btn btn-primary">Add Book</a>
 </body>
 </html>
