@@ -1,21 +1,30 @@
 package com.example.bookstore.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class Book {
+
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = true)
     private String author;
-    private int year;
+    @Column(nullable = true)
+    private int releaseYear;
+    @Id
     private String isbn;
     private double price;
 
     public Book() {
     }
 
-    public Book(String title, String author, int year, String isbn, double price) {
+    public Book(String title, String author, int releaseYear, String isbn, double price) {
         this.title = title;
         this.author = author;
-        this.year = year;
+        this.releaseYear = releaseYear;
         this.isbn = isbn;
         this.price = price;
     }
@@ -38,7 +47,6 @@ public class Book {
         return "Book{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", year=" + year +
                 ", isbn='" + isbn + '\'' +
                 ", price=" + price +
                 '}';
@@ -60,12 +68,12 @@ public class Book {
         this.author = author;
     }
 
-    public int getYear() {
-        return year;
+    public int getReleaseYear() {
+        return releaseYear;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
     }
 
     public String getIsbn() {

@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ResponseBody
 public class BookController {
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    /* @RequestMapping(value = "/index", method = RequestMethod.GET)
     private String index() {
         return "Welcome to the new Book store";
     }
+    */
 }
