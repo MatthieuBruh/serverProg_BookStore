@@ -1,8 +1,6 @@
 package fi.haagahelia.bookstore.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -15,15 +13,20 @@ public class Book {
     private String isbn;
     private double price;
 
+    @ManyToOne
+    @JoinColumn(name = "categoryid")
+    private Category category;
+
     public Book() {
     }
 
-    public Book(String title, String author, int releaseYear, String isbn, double price) {
+    public Book(String title, String author, int releaseYear, String isbn, double price, Category category) {
         this.title = title;
         this.author = author;
         this.releaseYear = releaseYear;
         this.isbn = isbn;
         this.price = price;
+        this.category = category;
     }
 
     @Override
@@ -44,8 +47,10 @@ public class Book {
         return "Book{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
+                ", releaseYear=" + releaseYear +
                 ", isbn='" + isbn + '\'' +
                 ", price=" + price +
+                ", category=" + category +
                 '}';
     }
 
@@ -87,5 +92,13 @@ public class Book {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

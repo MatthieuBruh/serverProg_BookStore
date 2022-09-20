@@ -6,13 +6,21 @@
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-<h1>Books</h1>
+<div style="margin-bottom: 20px;">
+    <h1 style="font-weight: bold; display: inline; margin-right: 10px;">Books</h1>
+    <a href="/categorylist" style="text-decoration: none; color: gray;">
+        <h1 style="display: inline;">-> Categorylist</h1>
+    </a>
+</div>
+
+
 <table class="table table-striped">
     <tr>
         <th>Author</th>
         <th>Title</th>
         <th>ISBN</th>
         <th>Year</th>
+        <th>Category</th>
         <th></th>
         <th></th>
     </tr>
@@ -21,6 +29,7 @@
         <td th:text="${book.title}" />
         <td th:text="${book.isbn}" />
         <td th:text="${book.releaseYear}" />
+        <td th:text="${book.category.name}" />
         <td><a class="btn btn-warning" th:href="@{/edit(isbn=${book.isbn})}">Edit</a></td>
         <td><a class="btn btn-danger" th:href="@{/delete/{isbn}(isbn=${book.isbn})}">Delete</a></td>
     </tr>
